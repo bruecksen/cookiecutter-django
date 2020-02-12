@@ -3,37 +3,24 @@
   "version": "{{ cookiecutter.version }}",
   "dependencies": {},
   "devDependencies": {
-    {% if cookiecutter.js_task_runner == 'Grunt' %}
-    "autoprefixer": "~8.1.0",
-    "connect-livereload": "~0.6.0",
-    "cssnano": "~3.10.0",
-    "grunt": "~1.0.2",
-    "grunt-bg-shell": "~2.3.1",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-postcss": "~0.9.0",
-    "grunt-sass": "~2.1.0",
-    "load-grunt-tasks": "~3.2.0",
-    "pixrem": "~4.0.1",
-    "time-grunt": "~1.2.1"
-    {% elif cookiecutter.js_task_runner == 'Gulp' %}
+    "autoprefixer": "^9.4.7",
     "browser-sync": "^2.14.0",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-pixrem": "^1.0.0",
-    "gulp-plumber": "^1.1.0",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.7",
-    "run-sequence": "^2.1.1"
-    {% endif %}
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "pixrem": "^5.0.0"
   },
   "engines": {
     "node": ">=0.8.0"
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "scripts": {
     {% if cookiecutter.js_task_runner == 'Grunt' %}
     "dev": "grunt serve"
