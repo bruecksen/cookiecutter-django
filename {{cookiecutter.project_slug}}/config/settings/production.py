@@ -1,4 +1,4 @@
-{% if cookiecutter.use_sentry == 'y' -%}
+{% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
 import logging
 
 import sentry_sdk
@@ -108,7 +108,7 @@ COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 COMPRESS_URL = STATIC_URL
 
 {%- endif %}
-{% if cookiecutter.use_sentry == 'n' -%}
+{% if cookiecutter.use_sentry_for_error_reporting == 'n' -%}
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
