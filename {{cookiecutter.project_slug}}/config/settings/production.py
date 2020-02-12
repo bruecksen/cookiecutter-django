@@ -192,14 +192,7 @@ sentry_logging = LoggingIntegration(
     event_level=logging.ERROR,  # Send errors as events
 )
 
-{%- if cookiecutter.use_celery == 'y' %}
-sentry_sdk.init(
-    dsn=SENTRY_DSN,
-    integrations=[sentry_logging, DjangoIntegration(), CeleryIntegration()],
-)
-{% else %}
 sentry_sdk.init(dsn=SENTRY_DSN, integrations=[sentry_logging, DjangoIntegration()])
-{% endif -%}
 {% endif %}
 
 # Your stuff...
