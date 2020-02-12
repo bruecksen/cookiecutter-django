@@ -53,7 +53,6 @@ gulp.task('styles', function() {
       ]
     }).on('error', sass.logError))
     .pipe(plumber()) // Checks for errors
-    .pipe(autoprefixer({browsers: ['last 2 versions']})) // Adds vendor prefixes
     .pipe(pixrem())  // add fallbacks for rem units
     .pipe(gulp.dest(paths.css))
     .pipe(rename({ suffix: '.min' }))
@@ -98,9 +97,9 @@ gulp.task('browserSync', function() {
 // Watch
 gulp.task('watch', function() {
 
-  gulp.watch(paths.sass + '/*.scss', ['styles']);
-  gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
-  gulp.watch(paths.images + '/*', ['imgCompression']);
+  gulp.watch(paths.sass + '/*.scss', gulp.series('styles'));
+  gulp.watch(paths.js + '/project.js', gulp.series('scripts'));
+  gulp.watch(paths.images + '/*', gulp.series('imgCompression'));
   gulp.watch(paths.templates + '/**/*.html').on("change", reload);
 
 });
